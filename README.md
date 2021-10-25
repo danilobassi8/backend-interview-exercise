@@ -24,9 +24,108 @@ Backend must be running on port 8000, and here is some information about the end
 
 Backend base url that the frontend app is trying to consume is: `http://localhost:8000/api/`
 
-<img src="./endpoint-information.jpg">
+<table>
+<tr>
+<td> Endpoint </td> <td> HTTP Verb </td> <td> Params / Body </td> <td> Expected response example </td>
+</tr>
+<tr>
+<td> Pets </td>
+<td> POST </td>
+<td>
+body:
 
-_See the `endpoint-information.jpg` attached to this repo._
+```javascript
+{
+    name: (string)
+    birth_date: (string - yyyy-mm-dd format)
+    is_birth_approximate: (boolean)
+
+}
+```
+</td>
+<td>
+
+```javascript
+{
+   birth_date: '2020-06-20',
+   id: 25,
+   is_birth_approximate: false,
+   name: ’Puppy’,
+}
+
+```
+ </td>
+</tr>
+
+<tr>
+<td> pets </td>
+<td> GET </td>
+<td>
+body:
+
+```javascript
+page: (number)
+name: (string)
+max_birth_date: (string - yyyy-mm-dd format)
+
+```
+</td>
+<td>
+
+```javascript
+{
+   count: 23,
+   next: 'http://localhost:8000/api/pets/?page=3',
+   previous: ’next: 'http://localhost:8000/api/pets/?page=1',
+   results: [
+      { id: 1, name: 'perro 1', age: '6 years', is_birth_approximate: false },
+      { id: 2, name: 'perro 2', age: '4 months', is_birth_approximate: true },
+      { id: 3, name: 'perro 3', age: '3 years and 1 month', is_birth_approximate: false },
+      ]
+}
+
+```
+ </td>
+</tr>
+
+</tr>
+<tr>
+<td> pets/:id </td>
+<td> DELETE </td>
+<td></td>
+<td> status 200 if deleted </td>
+</tr>
+
+<tr>
+<td> users/login </td>
+<td> POST </td>
+<td>
+body:
+
+```javascript
+{
+   email: (string)
+   password: (string)
+}
+```
+
+</td>
+<td>
+
+```javascript
+{
+   user: {
+      email: 'guest@guest.com',
+      first_name: 'guest',
+      is_admin: false,
+      last_name: 'guest_lastname',
+      username: 'guest',
+   },
+}
+```
+</td>
+</tr>
+</table>
 
 You can also check the frontend code if you need more information to integrate the requested API with the frontend app.
 
