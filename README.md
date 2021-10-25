@@ -129,9 +129,10 @@ body:
 
 You can also check the frontend code if you need more information to integrate the requested API with the frontend app.
 
-**NOTE:** When retrieving pets we need the pet's age instead of its date of birth. This must be handled by the API.
-
-The exercise must be done using Django Rest Framework (DRF) and its documentation must be in English, indicating how to run the API locally in Ubuntu Linux 18.04 or higher version.
+**NOTES:**
+-  When retrieving pets we need the pet's age instead of its date of birth. This must be handled by the API.
+- The pet list should be paginated, and the page size should be 5.
+- The exercise must be done using Django Rest Framework (DRF) and its documentation must be in English, indicating how to run the API locally in Ubuntu Linux 18.04 or higher version.
 
 # How to run the frontend app
 ## Run the frontend app with docker-compose <a name="docker"></a>
