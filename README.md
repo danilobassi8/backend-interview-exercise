@@ -151,3 +151,5 @@ npm install
 ng serve
 ```
 _Info on how to install Angular [here](https://angular.io/guide/setup-local#prerequisites)_
+
+You can check how the Frontend integrated with an API looks with the images inside the folder `images/`
