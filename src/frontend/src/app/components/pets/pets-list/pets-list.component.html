@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="currentUser">
+  <div class="row filters-container">
+    <app-pets-filters (filterEmitter)="filterPets($event)"></app-pets-filters>
+  </div>
+
+  <div class="mat-elevation-z8 row">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let pet">{{ pet.name | titlecase }}</td>
+      </ng-container>
+
+      <!-- birth_date Column -->
+      <ng-container matColumnDef="birth_date">
+        <th mat-header-cell *matHeaderCellDef>Birthday</th>
+        <td mat-cell *matCellDef="let pet">{{ pet.birth_date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>Age</th>
+        <td mat-cell *matCellDef="let pet">
+          {{ pet.age }}
+        </td>
+      </ng-container>
+      <!-- is_birth_aproximate Column -->
+      <ng-container matColumnDef="is_birth_approximate">
+        <th mat-header-cell *matHeaderCellDef>Aproximate?</th>
+        <td mat-cell *matCellDef="let pet">
+          {{ pet.is_birth_approximate ? "Approximate" : "Exact" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete" *ngIf="canDelete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            (click)="deletePet(row)"
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No pets found</td>
+      </tr>
+    </table>
+    <mat-paginator
+      [length]="this.totalPets"
+      [pageSize]= "5"
+      (page)="pageChanged($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+FROM node:12
+
+WORKDIR /usr/src/app/app-ui
+
+COPY src/frontend/package*.json ./
+
+RUN npm install -g @angular/cli
+RUN npm install @angular-devkit/build-angular
+RUN npm install
+
+EXPOSE 8010
+CMD ["npm", "run", "start"]

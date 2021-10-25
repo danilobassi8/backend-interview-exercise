@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card {
+  margin-top: 100px;
+  max-width: 300px;
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}

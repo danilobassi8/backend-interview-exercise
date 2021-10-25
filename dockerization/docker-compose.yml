@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  angular:
+    container_name: pets-frontend
+    build:
+      context: ../
+      dockerfile: ./dockerization/frontend/dockerfile
+    volumes:
+      - ../src/frontend:/usr/src/app/app-ui
+      - /usr/src/app/app-ui/node_modules
+    ports:
+      - "8010:8010"
+

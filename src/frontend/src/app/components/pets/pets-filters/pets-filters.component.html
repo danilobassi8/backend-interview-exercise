@@ -1,0 +1,58 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Filters </mat-panel-title>
+      <mat-panel-description> Choose your filters </mat-panel-description>
+      <mat-icon class="pets-icon">pets</mat-icon>
+    </mat-expansion-panel-header>
+
+    <div class="row">
+      <span>Name</span>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="nameFilter" matInput placeholder="Supercan" />
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <span>Age</span>
+      <mat-form-field class="age-filter">
+        <mat-label>Min</mat-label>
+        <input
+          matInput
+          placeholder="Min"
+          (change)="validateMinAge()"
+          [(ngModel)]="minAgeFilter"
+          [type]="'number'"
+        />
+      </mat-form-field>
+      <mat-form-field class="age-filter">
+        <mat-label>Max</mat-label>
+        <input
+          matInput
+          placeholder="Max"
+          (change)="validateMaxAge()"
+          [(ngModel)]="maxAgeFilter"
+          [type]="'number'"
+        />
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-raised-button
+      class="filter-buttons"
+      (click)="filterPets()"
+      color="primary"
+    >
+      Search
+    </button>
+    <button
+      mat-raised-button
+      class="filter-buttons"
+      (click)="clearFilters()"
+      color="primary"
+    >
+      Clear
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>
