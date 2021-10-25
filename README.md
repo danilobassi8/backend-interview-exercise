@@ -24,7 +24,7 @@ Backend must be running on port 8000, and here is some information about the end
 
 Backend base url that the frontend app is trying to consume is: `http://localhost:8000/api/`
 
-<img src="./endpoint-information.jpg">
+<img src="https://git.wardrobe.irobot.com/users/dbassi/repos/backend-interview-exercise/browse/endpoint-information.jpg">
 
 _See the `endpoint-information.jpg` attached to this repo._
 
