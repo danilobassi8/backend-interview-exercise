@@ -146,6 +146,7 @@ _Info on how to install docker-compose [here](https://docs.docker.com/compose/in
 ## Run the frontend app locally:
 ```
 cd src/frontend
+npm install
 ng serve
 ```
 _Info on how to install Angular [here](https://angular.io/guide/setup-local#prerequisites)_
